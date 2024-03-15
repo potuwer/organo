@@ -2,8 +2,9 @@ import "./Formulario.css";
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
+import { useState } from "react";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const grupos = [
     "Minecraft",
     "Overwatch",
@@ -14,9 +15,19 @@ const Formulario = () => {
     "Design",
   ];
 
+  const [nome, setNome] = useState("");
+  const [talento, setTalento] = useState("");
+  const [foto, setFoto] = useState("");
+  const [grupo, setGrupo] = useState("");
+
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    console.log("Form foi submetido");
+    props.aoColaboradorCadastrado({
+      nome,
+      talento,
+      foto,
+      grupo,
+    });
   };
 
   return (
@@ -27,14 +38,29 @@ const Formulario = () => {
           obrigatorio={true}
           label="Nome"
           placeholder="Digite seu nome"
+          valor={nome}
+          aoAlterado={(valor) => setNome(valor)}
         />
         <CampoTexto
           obrigatorio={true}
           label="Talento"
           placeholder="Digite seu Talento"
+          valor={talento}
+          aoAlterado={(valor) => setTalento(valor)}
         />
-        <CampoTexto label="Foto" placeholder="Informe o URL da sua foto" />
-        <ListaSuspensa obrigatorio={true} label="Grupo" itens={grupos} />
+        <CampoTexto
+          label="Foto"
+          placeholder="Informe o URL da sua foto"
+          valor={foto}
+          aoAlterado={(valor) => setFoto(valor)}
+        />
+        <ListaSuspensa
+          obrigatorio={true}
+          label="Grupo"
+          itens={grupos}
+          valor={grupo}
+          aoAlterado={(valor) => setGrupo(valor)}
+        />
         <Botao>Criar Card</Botao>
       </form>
     </section>
