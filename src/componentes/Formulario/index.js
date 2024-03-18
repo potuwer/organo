@@ -5,16 +5,6 @@ import Botao from "../Botao";
 import { useState } from "react";
 
 const Formulario = (props) => {
-  const grupos = [
-    "Minecraft",
-    "Overwatch",
-    "Valorant",
-    "Programação",
-    "Banco de Dados",
-    "Edição",
-    "Design",
-  ];
-
   const [nome, setNome] = useState("");
   const [talento, setTalento] = useState("");
   const [foto, setFoto] = useState("");
@@ -57,7 +47,7 @@ const Formulario = (props) => {
         <ListaSuspensa
           obrigatorio={true}
           label="Grupo"
-          itens={grupos}
+          itens={props.grupos}
           valor={grupo}
           aoAlterado={(valor) => setGrupo(valor)}
         />
