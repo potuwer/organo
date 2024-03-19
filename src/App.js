@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Grupo from "./componentes/Grupos";
+import Rodape from "./componentes/Rodape";
 
 function App() {
   const grupos = [
@@ -65,8 +66,13 @@ function App() {
           titulo={grupo.titulo}
           corPrimaria={grupo.corPrimaria}
           corSecundaria={grupo.corSecundaria}
+          colaboradores={colaboradores.filter(
+            (colaborador) => colaborador.grupo === grupo.titulo
+          )}
         />
       ))}
+
+      <Rodape />
     </div>
   );
 }

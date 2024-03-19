@@ -18,6 +18,10 @@ const Formulario = (props) => {
       foto,
       grupo,
     });
+    setNome("");
+    setTalento("");
+    setFoto("");
+    setGrupo("");
   };
 
   return (
