@@ -12,6 +12,8 @@ const Grupo = (props) => {
       <div className="colaboradores">
         {props.colaboradores.map((colaborador) => (
           <Colaborador
+            corDeFundo={props.corPrimaria}
+            key={colaborador.nome}
             nome={colaborador.nome}
             talento={colaborador.talento}
             foto={colaborador.foto}

@@ -46,13 +46,13 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador);
     setColaboradores([...colaboradores, colaborador]);
   };
 
   return (
     <div className="App">
       <Banner />
+
       <Formulario
         grupos={grupos.map((grupo) => grupo.titulo)}
         aoColaboradorCadastrado={(colaborador) =>
